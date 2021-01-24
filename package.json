@@ -1,0 +1,43 @@
+{
+  "name": "dott-assignment",
+  "version": "1.0.0",
+  "description": "code challenge for dott",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "start:dev": "nodemon",
+    "start": "npm run build && node build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint . --ext .ts --fix",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/musakacmaz/dott-assignment.git"
+  },
+  "keywords": [
+    "typescript",
+    "bitmap",
+    "challenge"
+  ],
+  "author": "musa kaçmaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/musakacmaz/dott-assignment/issues"
+  },
+  "homepage": "https://github.com/musakacmaz/dott-assignment#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.22",
+    "@typescript-eslint/eslint-plugin": "^4.14.0",
+    "@typescript-eslint/parser": "^4.14.0",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}
