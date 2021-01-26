@@ -1,56 +1,79 @@
 import { Constants } from '../constants';
 import { Bitmap } from '../models/bitmap';
 import { Pixel } from '../models/pixel';
+import { invalidNumberOfTestCasesError } from '../errors';
 
+/**
+ * Interface for classes that describe a bitmap.
+ * @interface
+ */
 interface BitmapDescription {
   lineSize: number;
   columnSize: number;
   pixels: string;
 }
 
+/**
+ * Parser class for the parsing operations.
+ * @class
+ * */
 export class Parser {
-  private bitmapDescriptions: Array<BitmapDescription>;
-  private numberOfTestCases: number | undefined;
+  public bitmapDescriptions: Array<BitmapDescription>;
+  public numberOfTestCases: number | undefined;
 
   constructor() {
     this.bitmapDescriptions = [];
   }
 
   /**
-   * static name
+   * Evaluates the incoming line, constructs bitmap descriptions and returns the current state.
+   *
+   * @param {line} string - string to be evaluated
+   * @returns {void} -
+   *
+   * @example
+   *     Parser.evaluateLine('1010');
    */
-  public evaluateLine(line: string): void {
+  public evaluateLine(line: string): null {
     if (!this.numberOfTestCases) {
       if (!(Number(line) >= Constants.NUMBER_OF_TEST_CASES_MIN_VALUE && Number(line) <= Constants.NUMBER_OF_TEST_CASES_MAX_VALUE)) {
-        throw new Error('Invalid number of test cases!');
+        throw invalidNumberOfTestCasesError();
       }
       this.numberOfTestCases = Number(line);
-      return;
+      return null;
     }
 
     if (line === '') {
-      return;
+      return null;
     }
 
     if (line.includes(' ')) {
       const [lineSize, columnSize] = line.split(' ');
-      const newBitmapDescription = {
+      const newBitmapDescription: BitmapDescription = {
         lineSize: Number(lineSize),
         columnSize: Number(columnSize),
         pixels: ''
       };
       this.bitmapDescriptions.push(newBitmapDescription);
-      return;
+      return null;
     } else {
       if (this.bitmapDescriptions[this.bitmapDescriptions.length - 1].pixels === '') {
         this.bitmapDescriptions[this.bitmapDescriptions.length - 1].pixels = line;
       } else {
         this.bitmapDescriptions[this.bitmapDescriptions.length - 1].pixels += ',' + line;
       }
-      return;
+      return null;
     }
   }
 
+  /**
+   * Creates and returns bitmaps from bitmap descriptions.
+   *
+   * @returns {Bitmap[]} bitmaps - created bitmaps
+   *
+   * @example
+   *     Parser.createBitmaps();
+   */
   public createBitmaps(): Bitmap[] {
     const bitmaps: Bitmap[] = [];
     this.bitmapDescriptions.forEach((bitmapDescription: BitmapDescription) => {
