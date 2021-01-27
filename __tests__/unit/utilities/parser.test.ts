@@ -1,6 +1,6 @@
-import { Parser } from '../../src/utilities/parser';
-import { invalidNumberOfTestCasesError } from '../../src/errors';
-import { Bitmap } from '../../src/models/bitmap';
+import { Parser } from '../../../src/utilities/parser';
+import { invalidNumberOfTestCasesError, invalidValueOfBitmapSize } from '../../../src/errors';
+import { Bitmap } from '../../../src/models/bitmap';
 
 describe('Parser Class Tests', () => {
   describe('evaluateLine', () => {
@@ -24,6 +24,18 @@ describe('Parser Class Tests', () => {
       } catch (error) {
         expect(error.type).toEqual(invalidNumberOfTestCasesError().type);
         expect(error.reason).toBe(invalidNumberOfTestCasesError().reason);
+      }
+    });
+    it('should throw err when an invalid value of bitmap size come from the input', () => {
+      const parser = new Parser();
+      parser.evaluateLine('1');
+      parser.evaluateLine('');
+      try {
+        parser.evaluateLine('3 183');
+      } catch (error) {
+        console.log('ERR: ', error);
+        expect(error.type).toEqual(invalidValueOfBitmapSize().type);
+        expect(error.reason).toBe(invalidValueOfBitmapSize().reason);
       }
     });
   });

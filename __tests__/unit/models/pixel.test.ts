@@ -1,4 +1,4 @@
-import { Pixel } from '../../src/models/pixel';
+import { Pixel } from '../../../src/models/pixel';
 
 describe('Pixel Class Tests', () => {
   const pixel: Pixel = new Pixel(0, 1, 0);

@@ -1,7 +1,7 @@
 import { Constants } from '../constants';
 import { Bitmap } from '../models/bitmap';
 import { Pixel } from '../models/pixel';
-import { invalidNumberOfTestCasesError } from '../errors';
+import { invalidNumberOfTestCasesError, invalidValueOfBitmapSize } from '../errors';
 
 /**
  * Interface for classes that describe a bitmap.
@@ -49,6 +49,12 @@ export class Parser {
 
     if (line.includes(' ')) {
       const [lineSize, columnSize] = line.split(' ');
+      if (
+        !(Number(lineSize) >= Constants.BITMAP_SIZE_MIN_VALUE && Number(lineSize) <= Constants.BITMAP_SIZE_MAX_VALUE) ||
+        !(Number(columnSize) >= Constants.BITMAP_SIZE_MIN_VALUE && Number(columnSize) <= Constants.BITMAP_SIZE_MAX_VALUE)
+      ) {
+        throw invalidValueOfBitmapSize();
+      }
       const newBitmapDescription: BitmapDescription = {
         lineSize: Number(lineSize),
         columnSize: Number(columnSize),

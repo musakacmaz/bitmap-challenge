@@ -1,5 +1,5 @@
-import { Bitmap } from '../../src/models/bitmap';
-import { Helper } from '../helper';
+import { Bitmap } from '../../../src/models/bitmap';
+import { Helper } from '../../helper';
 
 describe('Bitmap Class Tests', () => {
   const bitmap: Bitmap = Helper.seedBitmapData();

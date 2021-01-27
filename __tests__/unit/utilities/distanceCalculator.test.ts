@@ -1,7 +1,7 @@
-import { DistanceCalculator } from '../../src/utilities/distanceCalculator';
-import { Bitmap } from '../../src/models/bitmap';
-import { Pixel } from '../../src/models/pixel';
-import { Helper } from '../helper';
+import { DistanceCalculator } from '../../../src/utilities/distanceCalculator';
+import { Bitmap } from '../../../src/models/bitmap';
+import { Pixel } from '../../../src/models/pixel';
+import { Helper } from '../../helper';
 
 describe('DistanceCalculator Class Tests', () => {
   const bitmap: Bitmap = Helper.seedBitmapData();
