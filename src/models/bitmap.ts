@@ -56,4 +56,18 @@ export class Bitmap {
   public getPixels(): Pixel[] {
     return this.pixels;
   }
+
+  /**
+   * Sets the color of given pixel that bitmap contains.
+   *
+   * @param {Pixel} pixel - A pixel object
+   * @param {number} color - A color value
+   *
+   * @example
+   *     bitmap.setPixelColor(pixel, 1);
+   */
+  public setPixelColor(pixel: Pixel, color: number): void {
+    const foundPixelIndex = this.pixels.findIndex((p) => p.getLineIndex() === pixel.getLineIndex() && p.getColumnIndex() === pixel.getColumnIndex());
+    this.pixels[foundPixelIndex].setColor(color);
+  }
 }

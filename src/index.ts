@@ -27,8 +27,8 @@ async function main(): Promise<void> {
 
   rl.on('close', () => {
     const bitmaps = parser.createBitmaps();
-    bitmaps.forEach((bitmap, index) => {
-      process.stdout.write('Bitmap ' + (index + 1) + '\n');
+    console.time('Brute Force Method');
+    bitmaps.forEach((bitmap) => {
       const pixels = bitmap.getPixels();
       for (let i = 0; i < bitmap.getLineSize(); i++) {
         const outputLine = pixels
@@ -41,6 +41,20 @@ async function main(): Promise<void> {
       }
       process.stdout.write('\n');
     });
+    console.timeEnd('Brute Force Method');
+    process.stdout.write('\n');
+    console.time('Breadth First Search Method');
+    bitmaps.forEach((bitmap) => {
+      const distances = DistanceCalculator.calculateDistanceToTheNearestWhiteBFS(bitmap);
+      for (let i = 0; i < bitmap.getLineSize(); i++) {
+        for (let j = 0; j < bitmap.getColumnSize(); j++) {
+          process.stdout.write(distances[i][j] + ' ');
+        }
+        process.stdout.write('\n');
+      }
+      process.stdout.write('\n');
+    });
+    console.timeEnd('Breadth First Search Method');
   });
 }
 

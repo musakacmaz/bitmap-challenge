@@ -15,4 +15,13 @@ describe('DistanceCalculator Class Tests', () => {
       expect(DistanceCalculator.calculateDistanceToTheNearestWhite(bitmap, targetWhitePixel)).toEqual(0);
     });
   });
+  describe('calculateDistanceToTheNearestWhiteBFS', () => {
+    it('should be able to return the distances of nearest white pixels for each pixel that is in the given bitmap', () => {
+      const distances = DistanceCalculator.calculateDistanceToTheNearestWhiteBFS(bitmap);
+      expect(distances[0][0]).toEqual(2);
+      expect(distances[0][1]).toEqual(1);
+      expect(distances[1][0]).toEqual(1);
+      expect(distances[1][1]).toEqual(0);
+    });
+  });
 });

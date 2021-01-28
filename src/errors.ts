@@ -1,6 +1,7 @@
 enum ErrorCode {
   InvalidNumberOfTestCases,
-  InvalidValueOfBitmapSize
+  InvalidValueOfBitmapSize,
+  WhitePixelNotFoundError
 }
 
 interface Failure<FailureType extends number> {
@@ -16,4 +17,9 @@ export const invalidNumberOfTestCasesError = (): Failure<ErrorCode.InvalidNumber
 export const invalidValueOfBitmapSize = (): Failure<ErrorCode.InvalidValueOfBitmapSize> => ({
   type: ErrorCode.InvalidValueOfBitmapSize,
   reason: 'Invalid value of bitmap size!'
+});
+
+export const whitePixelNotFoundError = (): Failure<ErrorCode.WhitePixelNotFoundError> => ({
+  type: ErrorCode.WhitePixelNotFoundError,
+  reason: 'White pixel not found!'
 });

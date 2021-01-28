@@ -33,7 +33,6 @@ describe('Parser Class Tests', () => {
       try {
         parser.evaluateLine('3 183');
       } catch (error) {
-        console.log('ERR: ', error);
         expect(error.type).toEqual(invalidValueOfBitmapSize().type);
         expect(error.reason).toBe(invalidValueOfBitmapSize().reason);
       }

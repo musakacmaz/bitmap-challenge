@@ -54,4 +54,16 @@ export class Pixel {
   public getColor(): number {
     return this.color;
   }
+
+  /**
+   * Sets the color of the pixel.
+   *
+   * @param {number} color - An integer
+   *
+   * @example
+   *     pixel.setColor(1);
+   */
+  public setColor(color: number): void {
+    this.color = color;
+  }
 }
