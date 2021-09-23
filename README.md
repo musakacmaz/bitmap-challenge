@@ -81,3 +81,6 @@ Breadth First Search Method: 1.454ms
 
 - The number of test cases t must be in the range of (1≤t≤1000)
 - The line and column sizes n x m must be in the ranges of (1 <= n <= 182), (1 <= m <=182)
+
+## ⚖️ License
+[MIT © musa kaçmaz](https://musakacmaz.mit-license.org)
