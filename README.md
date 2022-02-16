@@ -21,7 +21,7 @@ You will need [Node.js](https://nodejs.org) and [TypeScript](https://www.typescr
 Get the code by either cloning this repository using git or download
 
 ```
-git clone https://github.com/musakacmaz/dott-assignment.git
+git clone https://github.com/musakacmaz/bitmap-challenge.git
 ```
 
 Once downloaded, open the terminal in the project directory, and install dependencies with:
@@ -56,7 +56,7 @@ cat input.txt | npm run start
 
 ## 🎉 Result
 
-The program should read bitmaps from the given [text document](https://github.com/musakacmaz/dott-assignment/blob/master/input.txt), calculate the distances with using both brute force and [breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search) algorithms and print the results. For example;
+The program should read bitmaps from the given [text document](https://github.com/musakacmaz/bitmap-challenge/blob/master/input.txt), calculate the distances with using both brute force and [breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search) algorithms and print the results. For example;
 Input:
 
 ```shell
